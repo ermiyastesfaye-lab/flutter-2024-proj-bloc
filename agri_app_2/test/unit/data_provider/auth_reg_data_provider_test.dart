@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:agri_app_2/auth/infrastructure/data_provider/signup_data_provider.dart';
 import 'package:agri_app_2/auth/domain/signup_model.dart';
+import 'package:agri_app_2/constant.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:http/http.dart' as http;
 import 'package:mockito/mockito.dart';
@@ -33,7 +34,7 @@ void main() {
 
       // Mocking the post request correctly
       when(client.post(
-        Uri.parse('http://localhost:3000/auth/signUp'),
+        Uri.parse('$apiBaseUrl/auth/signUp'),
         headers: anyNamed('headers'),
         body: anyNamed('body'),
       )).thenAnswer((_) async => response);

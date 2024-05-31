@@ -1,3 +1,4 @@
+import 'package:agri_app_2/constant.dart';
 import 'package:agri_app_2/user/domain/update_user_model.dart';
 import 'package:dio/dio.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -24,7 +25,7 @@ class UserDataProvider {
   Future<void> deleteUser(String? userId) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.delete('http://localhost:3000/users/$userId',
+      final response = await dio.delete('$apiBaseUrl/users/$userId',
           options: Options(headers: headers));
 
       if (response.statusCode != 200) {
@@ -38,7 +39,7 @@ class UserDataProvider {
   Future<UpdateUserDto> updateUser(String userId, UpdateUserDto user) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.patch('http://localhost:3000/Users/$userId',
+      final response = await dio.patch('$apiBaseUrl/Users/$userId',
           data: user.toJson(), options: Options(headers: headers));
 
       if (response.statusCode == 200) {

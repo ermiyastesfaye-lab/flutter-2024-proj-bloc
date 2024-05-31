@@ -1,3 +1,4 @@
+import 'package:agri_app_2/constant.dart';
 import 'package:agri_app_2/crop/domain/crop_model.dart';
 import 'package:agri_app_2/order/domain/order_model.dart';
 import 'package:agri_app_2/order/domain/update_order_model.dart';
@@ -26,7 +27,7 @@ class OrderDataProvider {
   Future<Order> createOrder(Order order) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.post('http://localhost:3000/orders',
+      final response = await dio.post('$apiBaseUrl/orders',
           data: order.toJson(), options: Options(headers: headers));
 
       if (response.statusCode == 201) {
@@ -44,7 +45,7 @@ class OrderDataProvider {
   Future<void> deleteOrder(String? orderId) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.delete('http://localhost:3000/orders/$orderId',
+      final response = await dio.delete('$apiBaseUrl/orders/$orderId',
           options: Options(headers: headers));
 
       if (response.statusCode != 200) {
@@ -58,7 +59,7 @@ class OrderDataProvider {
   Future<UpdateOrderDto> updateOrder(String orderId, UpdateOrderDto order) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.patch('http://localhost:3000/orders/$orderId',
+      final response = await dio.patch('$apiBaseUrl/orders/$orderId',
           data: order.toJson(), options: Options(headers: headers));
 
       if (response.statusCode == 200) {
@@ -78,7 +79,7 @@ class OrderDataProvider {
     try {
       final headers = await _authenticatedHeaders();
       final response = await dio.get(
-        'http://localhost:3000/orders/$orderId',
+        '$apiBaseUrl/orders/$orderId',
         options: Options(headers: headers),
       );
 
@@ -96,7 +97,7 @@ class OrderDataProvider {
  Future<List<Order>> getOrders() async {
   try {
     final headers = await _authenticatedHeaders();
-    final response = await dio.get('http://localhost:3000/orders',
+    final response = await dio.get('$apiBaseUrl/orders',
         options: Options(headers: headers));
 
     if (response.statusCode == 200) {
@@ -116,7 +117,7 @@ Future<List<Order>> getAllOrders() async {
 
   try {
      final headers = await _authenticatedHeaders();
-    final response = await dio.get('http://localhost:3000/orders/all-orders',
+    final response = await dio.get('$apiBaseUrl/orders/all-orders',
       options: Options(headers: headers));
 
     if (response.statusCode == 200) {

@@ -1,4 +1,5 @@
 import 'package:agri_app_2/auth/domain/signin_model.dart';
+import 'package:agri_app_2/constant.dart';
 import 'package:dio/dio.dart';
 
 class AuthDataProvider {
@@ -10,7 +11,7 @@ class AuthDataProvider {
       String email, String password, Role role) async {
     try {
       final response = await dio.post(
-        'http://localhost:3000/auth/signIn',
+        '$apiBaseUrl/auth/signIn',
         data: {
           'email': email,
           'password': password,

@@ -1,3 +1,4 @@
+import 'package:agri_app_2/constant.dart';
 import 'package:agri_app_2/crop/domain/crop_model.dart';
 import 'package:agri_app_2/crop/domain/update_crop_model.dart';
 import 'package:dio/dio.dart';
@@ -25,7 +26,7 @@ class CropDataProvider {
   Future<Crop> createCrop(Crop crop) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.post('http://localhost:3000/crops',
+      final response = await dio.post('$apiBaseUrl/crops',
           data: crop.toJson(), options: Options(headers: headers));
 
       if (response.statusCode == 201) {
@@ -42,7 +43,7 @@ class CropDataProvider {
   Future<void> deleteCrop(String? cropId) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.delete('http://localhost:3000/crops/$cropId',
+      final response = await dio.delete('$apiBaseUrl/crops/$cropId',
           options: Options(headers: headers));
 
       if (response.statusCode != 200) {
@@ -56,7 +57,7 @@ class CropDataProvider {
   Future<UpdateCropDto> updateCrop(String cropId, UpdateCropDto crop) async {
     try {
       final headers = await _authenticatedHeaders();
-      final response = await dio.patch('http://localhost:3000/crops/$cropId',
+      final response = await dio.patch('$apiBaseUrl/crops/$cropId',
           data: crop.toJson(), options: Options(headers: headers));
 
       if (response.statusCode == 200) {
@@ -76,7 +77,7 @@ class CropDataProvider {
     try {
       final headers = await _authenticatedHeaders();
       final response = await dio.get(
-        'http://localhost:3000/crops/$cropId',
+        '$apiBaseUrl/crops/$cropId',
         options: Options(headers: headers),
       );
 
@@ -94,7 +95,7 @@ class CropDataProvider {
  Future<List<Crop>> getCrops() async {
   try {
     final headers = await _authenticatedHeaders();
-    final response = await dio.get('http://localhost:3000/crops',
+    final response = await dio.get('$apiBaseUrl/crops',
         options: Options(headers: headers));
 
     if (response.statusCode == 200) {
@@ -114,7 +115,7 @@ Future<List<Crop>> getOrderCrops() async {
 
   try {
      final headers = await _authenticatedHeaders();
-    final response = await dio.get('http://localhost:3000/crops/all-crops',
+    final response = await dio.get('$apiBaseUrl/crops/all-crops',
       options: Options(headers: headers));
 
     if (response.statusCode == 200) {
