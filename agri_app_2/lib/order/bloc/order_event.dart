@@ -1,6 +1,6 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
-import 'package:agri_app_2/order/model/order_model.dart';
-import 'package:agri_app_2/order/model/update_order_model.dart';
+import 'package:agri_app_2/order/domain/order_model.dart';
+import 'package:agri_app_2/order/domain/update_order_model.dart';
 
 abstract class OrderEvent {
   const OrderEvent();

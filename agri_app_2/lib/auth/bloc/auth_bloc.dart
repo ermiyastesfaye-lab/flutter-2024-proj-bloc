@@ -1,7 +1,7 @@
 import 'package:agri_app_2/auth/bloc/auth_event.dart';
 import 'package:agri_app_2/auth/bloc/auth_state.dart';
-import 'package:agri_app_2/auth/model/signup_model.dart';
-import 'package:agri_app_2/auth/repository/signup_repo.dart';
+import 'package:agri_app_2/auth/domain/signup_model.dart';
+import 'package:agri_app_2/auth/infrastructure/repository/signup_repo.dart';
 
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -23,7 +23,7 @@ class AuthRegBloc extends Bloc<AuthEvent, AuthState> {
       final registeredUser = await _authRepository.register(SignupData(
         email: event.email,
         password: event.password,
-        role: Role.BUYER,
+        role: event.role
       ));
       emit(AuthAuthenticated(registeredUser));
     } catch (error) {

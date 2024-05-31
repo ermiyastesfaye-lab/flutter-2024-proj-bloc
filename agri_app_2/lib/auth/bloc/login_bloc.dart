@@ -1,7 +1,7 @@
 import 'package:agri_app_2/auth/bloc/login_event.dart';
 import 'package:agri_app_2/auth/bloc/login_state.dart';
-import 'package:agri_app_2/auth/model/signin_model.dart';
-import 'package:agri_app_2/auth/repository/signin_repo.dart';
+import 'package:agri_app_2/auth/domain/signin_model.dart';
+import 'package:agri_app_2/auth/infrastructure/repository/signin_repo.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class LoginBloc extends Bloc<LoginEvent, LoginState> {

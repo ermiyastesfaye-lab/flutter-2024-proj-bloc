@@ -1,4 +1,4 @@
-import 'package:agri_app_2/crop/model/crop_model.dart';
+import 'package:agri_app_2/crop/domain/crop_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class CropState extends Equatable {

@@ -1,8 +1,8 @@
 import 'package:agri_app_2/order/bloc/order_event.dart';
 import 'package:agri_app_2/order/bloc/order_state.dart';
-import 'package:agri_app_2/order/model/order_model.dart';
-import 'package:agri_app_2/order/model/update_order_model.dart';
-import 'package:agri_app_2/order/repository/order_repository.dart';
+import 'package:agri_app_2/order/domain/order_model.dart';
+import 'package:agri_app_2/order/domain/update_order_model.dart';
+import 'package:agri_app_2/order/infrastructure/repository/order_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class OrderBloc extends Bloc<OrderEvent, OrderState> {

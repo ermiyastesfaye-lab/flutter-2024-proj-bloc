@@ -1,4 +1,4 @@
-import 'package:agri_app_2/order/model/order_model.dart';
+import 'package:agri_app_2/order/domain/order_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class OrderState extends Equatable {

@@ -1,8 +1,8 @@
 import 'package:agri_app_2/crop/bloc/crop_event.dart';
 import 'package:agri_app_2/crop/bloc/crop_state.dart';
-import 'package:agri_app_2/crop/model/crop_model.dart';
-import 'package:agri_app_2/crop/model/update_crop_model.dart';
-import 'package:agri_app_2/crop/repository/crop_repository.dart';
+import 'package:agri_app_2/crop/domain/crop_model.dart';
+import 'package:agri_app_2/crop/domain/update_crop_model.dart';
+import 'package:agri_app_2/crop/infrastructure/repository/crop_repository.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class CropBloc extends Bloc<CropEvent, CropState> {

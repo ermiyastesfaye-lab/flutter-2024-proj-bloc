@@ -1,4 +1,4 @@
-import 'package:agri_app_2/auth/model/signup_model.dart';
+import 'package:agri_app_2/auth/domain/signup_model.dart';
 import 'package:equatable/equatable.dart';
 
 abstract class AuthState extends Equatable {
